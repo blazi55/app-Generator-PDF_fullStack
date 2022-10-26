@@ -31,7 +31,7 @@ public class ServicePDF {
                 max = all.get(i).getId();
             }
         }
-        if (max > 1) {
+        if (all.size() > 1) {
             Long min = Long.MAX_VALUE;
             for (int i = 0; i < all.size(); i++) {
                 if (all.get(i).getId() < min) {
