@@ -1,16 +1,19 @@
 import './App.css';
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { Button, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import {useState} from 'react';
 
 export default function FirstPage() {
   const[title, setTitle] = useState('');
   const[description, setDescription] = useState('');
+  const[fontSizeTitle, setFontSizeTitle] = useState(0);
+  const[fontSizeDescription, setFontSizeDescription] = useState(10);
 
   const onSave = (e) => {
+    window.location.reload(false);
     e.preventDefault()
-    const pdfSave = {title, description}
+    const pdfSave = {title, description, fontSizeTitle, fontSizeDescription}
     console.log(pdfSave)
     fetch("http://localhost:8080/pdf/generate", {
       method: "POST",
@@ -34,22 +37,73 @@ export default function FirstPage() {
          pdfWindow.location.href = fileURL;
       })
     })
-  };     
+  };
 
     return (
-      <div className="firstPage">
-        <div className="text1">
-          <TextField id="outlined-basic" label="Podaj Tytuł" variant="outlined" onChange={(e) => setTitle(e.target.value)}/>
+      <>
+        <div className="firstPage">
+          <ul>
+            <TextField id="outlined-basic" inputProps={{style:{width: 350, color: 'black'}}} label="Podaj Tytuł" variant="outlined" onChange={(e) => setTitle(e.target.value)}/>
+          </ul>
+          <ul>
+          <textarea className="text" placeholder="Podaj Opis" onChange={(e) => setDescription(e.target.value)}/>
+          </ul>
         </div>
-        <div className="text1">
-          <TextField id="outlined-basic" minRows={3} label="Krótki Opis" variant="outlined" onChange={(e) => setDescription(e.target.value)}/>
+        <div className="secondPage">
+          <div className="text1">
+            <Button variant="outlined" style={{margin: 20}} onClick={onSave}> Zatwierdź dane </Button>
+            <Button variant="outlined" style={{margin: 20}} onClick={onGet}> Pobierz PDF </Button>
+          </div>
+          <FormControl style={{width: 250, marginTop: 20}}>
+          <InputLabel id="demo-simple-select-label">Rozmiar Czcionki Tytułu</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Rozmiar Czcionki Tytułu"
+              onChange={(e) => setFontSizeTitle(e.target.value)}
+            >
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={11}>11</MenuItem>
+              <MenuItem value={12}>12</MenuItem>
+              <MenuItem value={13}>13</MenuItem>
+              <MenuItem value={14}>14</MenuItem>
+              <MenuItem value={15}>15</MenuItem>
+              <MenuItem value={16}>16</MenuItem>
+              <MenuItem value={17}>17</MenuItem>
+              <MenuItem value={18}>18</MenuItem>
+              <MenuItem value={19}>19</MenuItem>
+              <MenuItem value={20}>20</MenuItem>
+              <MenuItem value={21}>21</MenuItem>
+              <MenuItem value={22}>22</MenuItem>
+              <MenuItem value={23}>23</MenuItem>
+              <MenuItem value={24}>24</MenuItem>
+              <MenuItem value={25}>25</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl style={{width: 250, marginTop: 20}}>
+          <InputLabel id="demo-simple-select-label">Rozmiar Czcionki Opisu</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Rozmiar Czcionki Opisu"
+              onChange={(e) => setFontSizeDescription(e.target.value)}
+            >
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={11}>11</MenuItem>
+              <MenuItem value={12}>12</MenuItem>
+              <MenuItem value={13}>13</MenuItem>
+              <MenuItem value={14}>14</MenuItem>
+              <MenuItem value={15}>15</MenuItem>
+              <MenuItem value={16}>16</MenuItem>
+              <MenuItem value={17}>17</MenuItem>
+              <MenuItem value={18}>18</MenuItem>
+              <MenuItem value={19}>19</MenuItem>
+              <MenuItem value={20}>20</MenuItem>
+              <MenuItem value={21}>21</MenuItem>
+            </Select>
+          </FormControl>
         </div>
-        <div className="text1">
-          <Button variant="outlined" onClick={onSave}> Zatwierdź dane </Button>
-        </div>
-        <div className="text1">
-          <Button variant="outlined" onClick={onGet}> Pobierz PDF </Button>
-        </div>
-      </div>
+      </>
     );
   }

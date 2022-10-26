@@ -3,18 +3,72 @@
 }
 
 .firstPage {
-  background-color: rgb(225, 225, 249);
-  width: 90%;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  width: 50%;
   height: 500px;
   margin-left: 5%;
   margin-top: 5%;
   padding-top: 10px;
 }
 
+.secondPage {
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  width: 30%;
+  height: 500px;
+  margin-left: 60%;
+  margin-top: -510px;
+  padding-top: 10px;
+}
+
 .text1 {
   margin-top: 5%;
+  margin-left: 10px;
 }
 
 .text2 {
   height: 40px;
+}
+
+.text {
+  height: 370px;
+  width: 70%;
+  overflow-y: scroll;
+  background-color: rgba(225, 225, 249, 0);
+  font-size: 15px;
+  border: 0.2px solid rgb(183, 182, 182);
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  resize: none;
+}
+
+.text:focus { 
+  outline-color: rgb(7, 84, 249); 
+}
+
+/* width */
+.text::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.text::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.text::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.text::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
