@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ServicePDF {
-
     private final RepositoryPDF repositoryPDF;
 
     public CreatePDF importDates(CreatePDF createPDF) {
@@ -47,12 +46,12 @@ public class ServicePDF {
         PdfWriter.getInstance(document, response.getOutputStream());
         document.open();
         Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA);
-        fontTitle.setSize(18);
+        fontTitle.setSize(createPDF.getFontSizeTitle());
         Paragraph paragraph = new Paragraph(createPDF.getTitle(), fontTitle);
         paragraph.setAlignment(Paragraph.ALIGN_CENTER);
 
         Font fontParagraph = FontFactory.getFont(FontFactory.HELVETICA);
-        fontParagraph.setSize(12);
+        fontParagraph.setSize(createPDF.getFontSizeDescription());
         Paragraph paragraph1 = new Paragraph(createPDF.getDescription(), fontParagraph);
         paragraph1.setAlignment(Paragraph.ALIGN_JUSTIFIED);
 
