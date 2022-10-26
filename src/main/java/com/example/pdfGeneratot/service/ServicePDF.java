@@ -49,6 +49,8 @@ public class ServicePDF {
         fontTitle.setSize(createPDF.getFontSizeTitle());
         Paragraph paragraph = new Paragraph(createPDF.getTitle(), fontTitle);
         paragraph.setAlignment(Paragraph.ALIGN_CENTER);
+        Paragraph paragraphEmpty = new Paragraph(" ", fontTitle);
+        paragraph.setAlignment(Paragraph.ALIGN_CENTER);
 
         Font fontParagraph = FontFactory.getFont(FontFactory.HELVETICA);
         fontParagraph.setSize(createPDF.getFontSizeDescription());
@@ -56,6 +58,7 @@ public class ServicePDF {
         paragraph1.setAlignment(Paragraph.ALIGN_JUSTIFIED);
 
         document.add(paragraph);
+        document.add(paragraphEmpty);
         document.add(paragraph1);
         document.close();
     }
