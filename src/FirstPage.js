@@ -8,23 +8,27 @@ export default function FirstPage() {
   const[title, setTitle] = useState('');
   const[description, setDescription] = useState('');
   const[fontSizeTitle, setFontSizeTitle] = useState(0);
-  const[fontSizeDescription, setFontSizeDescription] = useState(10);
+  const[fontSizeDescription, setFontSizeDescription] = useState(0);
 
   const onSave = (e) => {
     window.location.reload(false);
     e.preventDefault()
-    const pdfSave = {title, description, fontSizeTitle, fontSizeDescription}
-    console.log(pdfSave)
-    fetch("http://localhost:8080/pdf/generate", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:8080/pdf/generate'
-      },
-        body: JSON.stringify(pdfSave)
-    }).then(() => {
-        console.log("Added")
-    })
+    if(fontSizeDescription == 0 || fontSizeTitle == 0) {
+      alert('Halo ustaw rozmiar czcionki paczusiu :)')
+    } else {
+      const pdfSave = {title, description, fontSizeTitle, fontSizeDescription}
+      console.log(pdfSave)
+      fetch("http://localhost:8080/pdf/generate", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:8080/pdf/generate'
+        },
+          body: JSON.stringify(pdfSave)
+      }).then(() => {
+          console.log("Added")
+      })
+    }
   }
 
   const onGet = async () => {
