@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>pdfGeneratot</artifactId>
+	<artifactId>app-generator-PDF</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pdfGenerator</name>
 	<description>Create pdf file</description>
