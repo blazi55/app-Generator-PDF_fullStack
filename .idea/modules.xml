@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/picture-product.iml" filepath="$PROJECT_DIR$/.idea/picture-product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/app-generator-PDF-front.iml" filepath="$PROJECT_DIR$/.idea/app-generator-PDF-front.iml" />
     </modules>
   </component>
 </project>
